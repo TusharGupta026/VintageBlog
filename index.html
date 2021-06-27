@@ -11,20 +11,24 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/MaterialDesign-Webfont/5.3.45/css/materialdesignicons.min.css"/>
     <link rel="stylesheet" href="css/tailwind.css">
     <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.8.2/dist/alpine.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <!-- jQuery -->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+
 </head>
 <body>
     <!--Search Bar-->
 <section>
     <div class="container mx-auto py-12 sm:px-20 px-4">
-        <div class="shadow-md border flex rounded-full">
-            <input class="w-full  rounded-l-full py-2 px-6 text-gray-700 leading-tight focus:outline-none" id="search" type="text" placeholder="Search Post">
+        <div class="hover:shadow-md border  flex rounded-full">
+            <input class="w-full  rounded-l-full py-2 px-6 text-gray-700 leading-tight focus:outline-none" id="search" type="text" title="Search" placeholder="Search Post">
             <div class="p-2">
-                <button class="bg-blue-500 text-white rounded-full p-2 hover:bg-blue-400 focus:outline-none w-12 h-12 flex items-center justify-center">
+                <button class="bg-blue-500 text-white rounded-full p-2 hover:bg-blue-400 focus:outline-none w-8 h-8 flex items-center justify-center">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
-                </button>
-            </div>
+                </button> 
+            </div> 
         </div>
     </div>      
 </section>
@@ -68,11 +72,77 @@
 </section>
 <!--About the Author-->
 <section>
-
+    <div class="container flex sm:mx-auto">
+        <div class="sm:w-3/5 w-4/5 sm:ml-48 ml-6 bg-white border-t p-6 rounded-lg ">
+          <div class="flex">
+            <div>
+                  <img class="w-20 mt-4 h-20 bg-cover bg-center rounded-full mr-3 shadow-inner" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=4&w=256&h=256&q=60">
+            </div>
+            <div class="pt-12 pl-2">
+              <h3 class="text-gray-800 font-lg text-xl font-semibold">Jack Cooper</h3>
+            </div>
+          </div>
+          <div class="mt-2 sm:pl-24">
+            <p class="text-gray-600 text-base">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
+              cursus ornare nibh, sit amet interdum lorem suscipit at. Ut cursus
+              condimentum neque vel gravida. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum
+              cursus ornare nibh, sit amet interdum lorem suscipit at. Ut cursus
+              condimentum neque vel gravida.
+            </p>
+          </div>
+        </div>
+    </div>
 </section>
+
+<!--Add Comments-->
+<section>
+    <div class="antialiased -ml-0  sm:pl-36 px-2 mx-auto mt-16 max-w-screen-sm">
+        <h3 class="mb-4 text-3xl font-normal text-gray-800">Comments</h3>
+        <div class="space-y-4">
+          <div class="flex">
+            <div class="flex-shrink-0 mr-3">
+              <img class="mt-2 rounded-full w-8 h-8 sm:w-10 sm:h-10" src="https://images.unsplash.com/photo-1604426633861-11b2faead63c?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=200&h=200&q=80" alt="">
+            </div>
+            <div class="flex-1 border rounded-lg px-4 py-2 sm:px-6 sm:py-4 leading-relaxed">
+              <strong>Sarah</strong> <span class="text-xs text-gray-400">3:34 PM</span>
+              <p class="text-sm">
+                Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                sed diam nonumy eirmod tempor invidunt ut labore et dolore
+                magna aliquyam erat, sed diam voluptua.
+              </p>
+            </div>
+          </div>
+        </div>
+</section>
+
+<!--Post Comment-->
+<section>
+  <div class="flex mx-auto shadow-lg mt-20 mb-4 sm:ml-36 sm:w-2/5">
+      <div class="w-full max-w-xl bg-white rounded-lg px-4 pt-2">
+         <div class="flex flex-wrap -mx-3 mb-6">
+            <h2 class="px-4 pt-3 pb-4 text-gray-800 text-lg font-semibold">Add a new comment</h2>
+            <div class="px-3 flex-grow grid grid-cols-2 gap-2">
+              <input type="text" name="author" id="name" title="Name" placeholder="Name" autocomplete="given-name" class="mt-1 px-2 block w-full  placeholder-gray-700 focus:outline-none rounded border border-gray-400 "  required>
+              <input type="text" name="email_address" id="email_address"  oninvalid="this.setCustomValidity('Please Enter valid email')"
+                  oninput="setCustomValidity('')" title="Email" placeholder="Email" autocomplete="email" class="mt-1 px-2  block w-full  placeholder-gray-700 focus:outline-none rounded border border-gray-400"  required>
+            </div>
+            <div class="w-full md:w-full px-3 mb-2 mt-2">
+               <textarea  class="bg-white rounded border border-gray-400 leading-normal resize-none w-full h-40 py-2 px-3 placeholder-gray-700 focus:outline-none focus:bg-white" name="message" placeholder='Type Your Comment' required></textarea>
+            </div>
+            <div class="w-full md:w-full flex flex-row-reverse md:w-full px-3">
+              <div class="-mr-1">
+                  <input type='submit' class="bg-indigo-600 text-white font-medium py-1 px-4  tracking-wide mr-1 hover:bg-indigo-800" value='Post Comment'>
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>
+</section>
+
 
  <!-- Swiper JS -->
  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
- <script type="text/javascript" src="js/tailwind.js"></script>     
+ <script type="text/javascript" src="js/app.js"></script>     
 </body>
 </html>
